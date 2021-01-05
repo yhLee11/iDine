@@ -25,7 +25,7 @@ struct OrderView: View {
                             Spacer()
                             Text("$\(item.price)")
                         }
-                    }
+                    }.onDelete(perform: deleteItems)
                 }
                 
                 Section{
@@ -33,16 +33,6 @@ struct OrderView: View {
                         Text("Place Order")
                     }
                 }.disabled(order.items.isEmpty)
-                
-                Section{
-                    ForEach(order.items){item in
-                        HStack{
-                            Text(item.name)
-                            Spacer()
-                            Text("$\(item.price)")
-                        }
-                    }.onDelete(perform: deleteItems)
-                }
                 
                 
             }
